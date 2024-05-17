@@ -1,44 +1,45 @@
+// src/App.test.js
+import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { MemoryRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import App from './App';
-import DriverStanding from './pages/drivers';
-import Home from './pages/home';
 
-test('renders welcome message', () => {
+// Mock the pages to avoid loading the actual content
+jest.mock('./pages/home', () => () => <div>Home Page</div>);
+jest.mock('./pages/SelectionPage', () => () => <div>Selection Page</div>);
+jest.mock('./pages/dashboard', () => () => <div>Dashboard Page</div>);
+jest.mock('./components/navBar', () => () => <div>NavBar</div>);
+
+test('renders the home page by default', () => {
   render(
-    <MemoryRouter initialEntries={['/']}>
+    <Router>
       <App />
-    </MemoryRouter>
+    </Router>
   );
-  const welcomeElement = screen.getByText(/welcome to hyper/i);
-  expect(welcomeElement).toBeInTheDocument();
+
+  expect(screen.getByText('Home Page')).toBeInTheDocument();
 });
 
-test('renders home page content', () => {
+test('renders the selection page when navigating to /selection', () => {
+  window.history.pushState({}, 'Test page', '/selection');
+
   render(
-    <MemoryRouter initialEntries={['/']}>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </MemoryRouter>
+    <Router>
+      <App />
+    </Router>
   );
-  const homeElement = screen.getByText(/this is the home page/i);
-  expect(homeElement).toBeInTheDocument();
+
+  expect(screen.getByText('Selection Page')).toBeInTheDocument();
 });
 
-test('renders driver standings page', async () => {
+test('renders the dashboard page when navigating to /dashboard', () => {
+  window.history.pushState({}, 'Test page', '/dashboard');
+
   render(
-    <MemoryRouter initialEntries={['/drivers']}>
-      <Routes>
-        <Route path="/drivers" element={<DriverStanding />} />
-      </Routes>
-    </MemoryRouter>
+    <Router>
+      <App />
+    </Router>
   );
-  const loadingElement = screen.getByText(/loading.../i);
-  expect(loadingElement).toBeInTheDocument();
 
-  // Optionally, you could wait for the data to load and check for specific content
-  // const driverElement = await screen.findByText(/driver name or team name/i);
-  // expect(driverElement).toBeInTheDocument();
+  expect(screen.getByText('Dashboard Page')).toBeInTheDocument();
 });
-
