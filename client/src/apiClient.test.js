@@ -1,37 +1,41 @@
-// src/apiClient.test.js
+// apiClient.test.js
 import axios from 'axios';
+import MockAdapter from 'axios-mock-adapter';
 import apiClient from './apiClient';
 
-jest.mock('axios');
-
 describe('apiClient', () => {
-  it('should make a GET request successfully', async () => {
+  let mock;
+
+  beforeEach(() => {
+    mock = new MockAdapter(apiClient);
+  });
+
+  afterEach(() => {
+    mock.restore();
+  });
+
+  it('should make a successful GET request', async () => {
     const responseData = { message: 'success' };
-    const url = '/test'; // Define the URL
 
-    // Mocking axios.get to return a resolved promise with responseData
-    axios.get.mockResolvedValue({ data: responseData });
+    // Mocking a successful GET request
+    mock.onGet('/').reply(200, responseData);
 
-    // Making the GET request using apiClient.get
-    const response = await apiClient.get(url);
+    // Making the GET request using apiClient
+    const response = await apiClient.get('/');
 
     // Expecting the response data to match responseData
     expect(response.data).toEqual(responseData);
-
-    // Expecting axios.get to have been called with the correct URL
-    expect(axios.get).toHaveBeenCalledWith(`${apiClient.defaults.baseURL}${url}`);
   });
 
-  it('should handle errors', async () => {
-    const errorMessage = 'Network Error';
-    const url = '/test'; // Define the URL
+  it('should handle error for GET request', async () => {
+    const errorMessage = 'Request failed with status code 500';
 
-    // Mocking axios.get to return a rejected promise with an error
-    axios.get.mockRejectedValue(new Error(errorMessage));
+    // Mocking a failed GET request
+    mock.onGet('/').reply(500, errorMessage);
 
     try {
-      // Making the GET request using apiClient.get
-      await apiClient.get(url);
+      // Making the GET request using apiClient
+      await apiClient.get('/');
     } catch (error) {
       // Expecting the error message to match the mocked error message
       expect(error.message).toBe(errorMessage);
