@@ -28,17 +28,19 @@ const DriverStanding = () => {
       {isLoading ? (
         <div className="text-xl font-semibold">Loading...</div>
       ) : (
-        data && data.items.map((driver, index) => (
-          <div 
-            key={index} 
-            className="flex flex-col items-start bg-white shadow-md rounded-lg p-4 mb-4 w-full md:w-1/2"
-          >
-            <h2 className="text-xl font-semibold mb-2">{driver.firstName} {driver.lastName}</h2>
-            <p className="mb-1"><span className="font-bold">Team:</span> {driver.constructors[0].name}</p>
-            <p className="mb-1"><span className="font-bold">Points:</span> {driver.standing.points}</p>
-            <p className="mb-1"><span className="font-bold">Position:</span> {driver.standing.position}</p>
-          </div>
-        ))
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-h-96 overflow-y-auto">
+          {data && data.items.map((driver, index) => (
+            <div 
+              key={index} 
+              className="flex flex-col items-start bg-white shadow-md rounded-lg p-4 mb-4 w-full"
+            >
+              <h2 className="text-xl font-semibold mb-2">{driver.firstName} {driver.lastName}</h2>
+              <p className="mb-1"><span className="font-bold">Team:</span> {driver.constructors[0].name}</p>
+              <p className="mb-1"><span className="font-bold">Points:</span> {driver.standing.points}</p>
+              <p className="mb-1"><span className="font-bold">Position:</span> {driver.standing.position}</p>
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );
