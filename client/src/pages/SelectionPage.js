@@ -24,10 +24,10 @@ const SelectionPage = () => {
         </p>
       </header>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid gap-4 md:flex md:flex-row md:flex-wrap justify-center pt-2 pb-3 pl-2 items-center  rounded  ">
         {drivers.map((driver) => (
           <div key={driver.id} className="bg-white p-4 rounded-lg shadow-md">
-            <img src={driver.image} alt={driver.name} className="w-full h-32 object-cover rounded-t-lg mb-4" />
+            <img src={driver.image} alt={driver.name} className="object-contain w-48 h-48  rounded-t-lg mb-4" />
             <h2 className="text-xl font-semibold text-gray-800">{driver.name}</h2>
             <p className="text-gray-600">{driver.team}</p>
             {selectedDrivers.includes(driver) ? (
