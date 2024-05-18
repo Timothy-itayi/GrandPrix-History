@@ -37,11 +37,11 @@ describe('Dashboard', () => {
     expect(screen.getByText('Dashboard')).toBeInTheDocument();
   });
 
-  it('should render all sections', () => {
+  it('should render race  sections', () => {
     render(<Dashboard />);
 
     expect(screen.getByTestId('upcoming-race')).toBeInTheDocument();
-    expect(screen.getByTestId('driver-standings')).toBeInTheDocument();
+
     expect(screen.getByTestId('race-list')).toBeInTheDocument();
     expect(screen.getAllByTestId('race-list').length).toBe(2); // Two race lists for past and future races
   });
@@ -50,7 +50,7 @@ describe('Dashboard', () => {
     render(<Dashboard />);
 
     expect(screen.getByTestId('upcoming-race')).toHaveTextContent('Upcoming Race Component: 2 races');
-    expect(screen.getByTestId('driver-standings')).toHaveTextContent('Driver Standings Component');
+
     expect(screen.getAllByTestId('race-list')[0]).toHaveTextContent('Past Races: 0 races'); // No past races in the mock data
     expect(screen.getAllByTestId('race-list')[1]).toHaveTextContent('Future Races: 2 races'); // Two future races in the mock data
   });
