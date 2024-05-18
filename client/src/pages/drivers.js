@@ -4,6 +4,7 @@ import apiClient from '../apiClient';
 const DriverStanding = () => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const fetchData = async () => {
     try {
@@ -11,8 +12,10 @@ const DriverStanding = () => {
       setData(response.data);
       setIsLoading(false);
     } catch (error) {
-      console.error('Error fetching data: ', error);
+      console.error('Error fetching data:',error);
+      
       setIsLoading(false);
+  setError(error.message);
       throw error; // Propagate the error
     }
   };
@@ -22,12 +25,15 @@ const DriverStanding = () => {
   }, []);
 
   return (
+   
     <div className="flex flex-col items-center p-4">
       <p className="text-2xl font-bold mb-4">Driver Standings</p>
   
       {isLoading ? (
-        <div className="text-xl font-semibold">Loading...</div>
-      ) : (
+      <div className="text-xl font-semibold">Loading...</div>
+    ) : error ? (
+      <div className="text-xl font-semibold text-red-500">{error}</div>
+    ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-h-96 overflow-y-auto">
           {data && data.items.map((driver, index) => (
             <div 
