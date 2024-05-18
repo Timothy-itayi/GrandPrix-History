@@ -1,30 +1,42 @@
-import axios from 'axios'
+// api/rapidApi.js
+import axios from 'axios';
 import dotenv from 'dotenv';
 
 dotenv.config();
-//server/RapidApi.js
-export async function fetchDataFromRapidApi() {
-    const apiKey = process.env.API_KEY
-    const options = {
-        method: 'GET',
-        url: 'https://hyprace-api.p.rapidapi.com/v1/seasons/{8ac404c1-7494-4b04-b8a6-ee97913de526}/constructors',
-        headers: {
-            'X-RapidAPI-Key': apiKey,
-            'X-RapidAPI-Host': 'hyprace-api.p.rapidapi.com'
-        }
-    };
 
-    const response = await axios.request(options);
-    
-    if (response.status !== 200) {
-        throw new Error('Error fetching data. Status code: ' + response.status);
-    }
+const apiKey = process.env.API_KEY;
+const baseURL = 'https://hyprace-api.p.rapidapi.com/v1';
 
-    // Check if the response content type is JSON
-    const contentType = response.headers['content-type'];
-    if (!contentType || !contentType.includes('application/json')) {
-        throw new Error('Response is not JSON');
-    }
+const apiOptions = (endpoint) => ({
+  method: 'GET',
+  url: `${baseURL}/${endpoint}`,
+  headers: {
+    'X-RapidAPI-Key': apiKey,
+    'X-RapidAPI-Host': 'hyprace-api.p.rapidapi.com'
+  }
+});
 
-    return response.data;
+export async function fetchDataFromRapidApi(endpoints) {
+  const requests = endpoints.map(endpoint => axios.request(apiOptions(endpoint)));
+
+  try {
+    const responses = await Promise.all(requests);
+
+    // Ensure all responses are successful and JSON
+    const data = responses.map(response => {
+      if (response.status !== 200) {
+        throw new Error(`Error fetching data from ${response.config.url}. Status code: ${response.status}`);
+      }
+      const contentType = response.headers['content-type'];
+      if (!contentType || !contentType.includes('application/json')) {
+        throw new Error(`Response from ${response.config.url} is not JSON`);
+      }
+      return response.data;
+    });
+
+    return data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 }

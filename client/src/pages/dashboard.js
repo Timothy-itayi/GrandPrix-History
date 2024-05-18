@@ -2,8 +2,10 @@
 import React from 'react';
 import racesData from '../models/races';
 import DriverStandings from '../pages/drivers';
-import RaceList from '../components/raceList';
+
 import UpcomingRace from '../components/UpcomingRace'
+
+import CurrentRace from '../components/CurrentRace';
 
 const Dashboard = () => {
   const today = new Date();
@@ -16,11 +18,19 @@ const Dashboard = () => {
       <h1 className="text-4xl font-bold mb-4 text-gray-800">Dashboard</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+       
+        
+      
         {/* Upcoming Race */}
         <div className=" bg-black w-full p-4 shadow-md overflow-y-auto lg:col-span-2">
+    <div className= 'text-white col-span-1 lg:col-span-1 '>
+    <h1>F1 Grand Prix</h1>
+    <CurrentRace races={racesData}/>
+    </div>
+       
           <UpcomingRace races={racesData} />
-          <RaceList title="Past Races" races={pastRaces} />
-          <RaceList title="Future Races" races={futureRaces} />
+          
+      
         </div>
  {/* Driver Standings */}
         <div className="col-span-1">

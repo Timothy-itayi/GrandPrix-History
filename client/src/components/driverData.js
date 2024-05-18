@@ -12,6 +12,13 @@ const DriverData = ({ children }) => {
       const response = await apiClient.get('/');
       const fetchedData = response.data;
 
+      // Ensure fetchedData is an array and has items
+      if (!Array.isArray(fetchedData) || !fetchedData[0] || !fetchedData[0].items) {
+        throw new Error('Invalid data structure');
+      }
+
+      const items = fetchedData[0].items;
+
       // Map images to driver IDs
       const imageMap = {};
       driverImages.forEach(driver => {
@@ -20,14 +27,16 @@ const DriverData = ({ children }) => {
 
       // Extract and sort drivers
       const drivers = [];
-      fetchedData.items.forEach(team => {
-        team.drivers.forEach(driver => {
-          drivers.push({
-            ...driver,
-            teamName: team.fullName,
-            imageUrl: imageMap[driver.id] 
+      items.forEach(team => {
+        if (team.drivers) {
+          team.drivers.forEach(driver => {
+            drivers.push({
+              ...driver,
+              teamName: team.fullName,
+              imageUrl: imageMap[driver.id]
+            });
           });
-        });
+        }
       });
       drivers.sort((a, b) => a.standing.position - b.standing.position);
 

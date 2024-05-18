@@ -1,7 +1,7 @@
 // apiClient.test.js
 
 import MockAdapter from 'axios-mock-adapter';
-import apiClient from './apis/apiClient';
+import apiClient from './apiClient';
 
 describe('apiClient', () => {
   let mock;
