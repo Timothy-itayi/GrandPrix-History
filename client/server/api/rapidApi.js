@@ -7,7 +7,7 @@ export async function fetchDataFromRapidApi() {
     const apiKey = process.env.API_KEY
     const options = {
         method: 'GET',
-        url: 'https://hyprace-api.p.rapidapi.com/v1/seasons/8ac404c1-7494-4b04-b8a6-ee97913de526/drivers',
+        url: 'https://hyprace-api.p.rapidapi.com/v1/seasons/{8ac404c1-7494-4b04-b8a6-ee97913de526}/constructors',
         headers: {
             'X-RapidAPI-Key': apiKey,
             'X-RapidAPI-Host': 'hyprace-api.p.rapidapi.com'

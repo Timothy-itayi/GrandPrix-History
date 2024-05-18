@@ -2,7 +2,7 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import DriverStanding from '../pages/drivers';
-import apiClient from '../apiClient';
+import apiClient from '../apis/apiClient';
 import MockAdapter from 'axios-mock-adapter';
 import '@testing-library/jest-dom/extend-expect';
 

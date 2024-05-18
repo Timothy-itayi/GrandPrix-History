@@ -17,26 +17,20 @@ const Dashboard = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* Upcoming Race */}
-        <div className="col-span-1 lg:col-span-2">
+        <div className=" bg-black w-full p-4 shadow-md overflow-y-auto lg:col-span-2">
           <UpcomingRace races={racesData} />
+          <RaceList title="Past Races" races={pastRaces} />
+          <RaceList title="Future Races" races={futureRaces} />
         </div>
  {/* Driver Standings */}
         <div className="col-span-1">
-          <section className="my-8 p-4 bg-white rounded-lg shadow-md">
+          <section className="  bg-black  shadow-md">
          
             <DriverStandings />
           </section>
         </div>
 
-        {/* Past Races */}
-        <div className="col-span-1 lg:col-span-1">
-          <RaceList title="Past Races" races={pastRaces} />
-        </div>
-
-        {/* Future Races */}
-        <div className="col-span-1 lg:col-span-2">
-          <RaceList title="Future Races" races={futureRaces} />
-        </div>
+       
       </div>
     </div>
   );
