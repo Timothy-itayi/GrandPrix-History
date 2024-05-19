@@ -1,8 +1,8 @@
 // components/UpcomingRace.js
 
 import React, { useState, useEffect } from 'react';
-import apiClient from '../apis/apiClient'; // Ensure this client is correctly configured
-import CircuitImages from '../models/races'; // Ensure this model has the images
+import apiClient from '../../apis/apiClient'; // Ensure this client is correctly configured
+import CircuitImages from '../../models/races'; // Ensure this model has the images
 
 const UpcomingRace = () => {
   const [races, setRaces] = useState([]);

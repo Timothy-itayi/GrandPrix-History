@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import RaceList from '../components/raceList';
+import RaceList from './raceList';
 import '@testing-library/jest-dom/extend-expect';
 
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import apiClient from '../apis/apiClient';
-import driverImages from '../models/drivers';
+import apiClient from '../../apis/apiClient';
+import driverImages from '../../models/drivers';
 
 const DriverData = ({ children }) => {
   const [driverList, setDriverList] = useState([]);

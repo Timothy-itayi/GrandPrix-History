@@ -2,7 +2,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom'; // Import BrowserRouter as Router
-import Home from './Home';
+import Home from './home';
 
 describe('Home', () => {
   it('should render without crashing', () => {
