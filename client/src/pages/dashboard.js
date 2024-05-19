@@ -1,48 +1,47 @@
+// components/Dashboard.js
 
 import React from 'react';
 import racesData from '../models/races';
 import DriverStandings from '../pages/drivers';
-
-import UpcomingRace from '../components/UpcomingRace'
-
-import CurrentRace from '../components/CurrentRace';
+import moment from 'moment';
 
 const Dashboard = () => {
-  const today = new Date();
+  // Function to get the current or next race ID
+  const getCurrentRaceId = () => {
+    const today = moment();
+    const upcomingRaces = racesData.filter(race => moment(race.date).isAfter(today));
 
-  const pastRaces = racesData.filter((race) => new Date(race.date) < today);
-  const futureRaces = racesData.filter((race) => new Date(race.date) > today);
+    if (upcomingRaces.length > 0) {
+      return upcomingRaces[0].id; // Return the ID of the next race
+    }
+
+    // If there are no upcoming races, return the ID of the most recent race
+    const pastRaces = racesData.filter(race => moment(race.date).isBefore(today));
+    if (pastRaces.length > 0) {
+      return pastRaces[pastRaces.length - 1].id;
+    }
+
+    return null; // If no races are found
+  };
+
+  const currentGrandPrixId = getCurrentRaceId();
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-4xl font-bold mb-4 text-gray-800">Dashboard</h1>
-
+      <h1 className="text-4xl font-bold mb-4 text-gray-800"> Driver Dashboard</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-       
-        
-      
         {/* Upcoming Race */}
-        <div className=" bg-black w-full p-4 shadow-md overflow-y-auto lg:col-span-2">
-    <div className= 'text-white col-span-1 lg:col-span-1 '>
-    <h1>F1 Grand Prix</h1>
-    <CurrentRace races={racesData}/>
-    </div>
        
-          <UpcomingRace races={racesData} />
-          
-      
+    
         </div>
- {/* Driver Standings */}
+        {/* Driver Standings */}
         <div className="col-span-1">
-          <section className="  bg-black  shadow-md">
-         
+          <section className="bg-black shadow-md">
             <DriverStandings />
           </section>
         </div>
-
-       
       </div>
-    </div>
+    
   );
 };
 

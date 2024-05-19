@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import NavBar from './components/navBar'
-
-import Home from './pages/home'; // Ensure these paths are correct
+import NavBar from './components/LayoutComponents/navBar'
+import './index.css';
+import Home from './pages/home'; 
 import SelectionPage from './pages/SelectionPage';
 import Dashboard from './pages/dashboard';
 
