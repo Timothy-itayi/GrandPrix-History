@@ -14,7 +14,7 @@ const DriverCard = ({ driver, onClick }) => {
       <h2 className="text-lg md:text-xl font-bold text-gray-800 mb-2 text-center">{driver.firstName} {driver.lastName}</h2>
       <p className="text-sm md:text-base text-gray-600 mb-1 text-center"><span className="font-bold">Team:</span> {driver.teamName}</p>
       <p className="text-sm md:text-base text-gray-600 mb-1 text-center"><span className="font-bold">Points:</span> {driver.standing.points}</p>
-      <p className="text-sm md:text-base text-gray-600 mb-1 text-center"><span className="font-bold">Position:</span> {driver.standing.position}</p>
+      <p className="text-sm md:text-base text-gray-600 mb-1 text-center "><span className="font-bold">Position:</span> {driver.standing.position}</p>
     </div>
   );
 };
