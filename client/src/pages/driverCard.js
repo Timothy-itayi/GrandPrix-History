@@ -9,7 +9,7 @@ const DriverCard = ({ driver, onClick }) => {
       onClick={onClick}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      style={{ backgroundColor: hover ? driver.suitColor : '' }}
+      style={{ backgroundColor: hover ? driver.suitColor : 'black' }}
     >
       <img
         src={driver.imageUrl}

@@ -24,7 +24,7 @@ const Home = () => {
             <button className="bg-black text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300">View GrandPrix</button>
           </Link>
         </section>
-        <section className="my-8 p-6 bg-white rounded-lg shadow-md">
+        <section className="my-8 p-6 bg-white rounded-lg">
           <h2 className="text-3xl font-semibold mb-4 text-gray-700">Drivers</h2>
           <p className="text-gray-600 mb-4">
             Catch up with the Drivers Standings of the current Formula 1 Season
