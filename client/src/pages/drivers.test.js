@@ -1,7 +1,7 @@
 // DriverStanding.test.js
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
-import DriverStanding from '../pages/drivers';
+import DriverStanding from './driverStanding';
 import apiClient from '../apis/apiClient';
 import MockAdapter from 'axios-mock-adapter';
 import '@testing-library/jest-dom/extend-expect';

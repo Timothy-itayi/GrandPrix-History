@@ -12,21 +12,20 @@ const Home = () => {
       </header>
       
       <section className="my-8 p-6 bg-gray-100 rounded-lg shadow-md">
-        <h2 className="text-3xl font-semibold mb-4 text-gray-700">Teams</h2>
+        <h2 className="text-3xl font-semibold mb-4 text-gray-700">GrandPrix</h2>
         <p className="text-gray-600 mb-4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.
-          Cras venenatis euismod malesuada.
+        Learn about the tracks for the Formula 1 2024 season 
         </p>
-        <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300">Get Started</button>
+        <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300">View GrandPrix</button>
       </section>
 
       <section className="my-8 p-6 bg-white rounded-lg shadow-md">
         <h2 className="text-3xl font-semibold mb-4 text-gray-700">Drivers</h2>
         <p className="text-gray-600 mb-4">
-          Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+         Driver Standings for the 2024 Formula 1 2024 season 
         </p>
         <Link to="/dashboard"> {/* Link to the selection page */}
-          <button className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition duration-300">Pick Your Driver</button>
+          <button className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition duration-300">View Drivers</button>
         </Link>
       </section>
 

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import racesData from '../models/races';
-import DriverStandings from '../pages/drivers';
+import DriverStandings from './driverStanding';
 import moment from 'moment';
 
 const Dashboard = () => {

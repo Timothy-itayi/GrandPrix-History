@@ -19,10 +19,13 @@ const DriverData = ({ children }) => {
 
       const items = fetchedData[0].items;
 
-      // Map images to driver IDs
-      const imageMap = {};
+      // Map images and driver numbers to driver IDs
+      const driverMap = {};
       driverImages.forEach(driver => {
-        imageMap[driver.id] = driver.image;
+        driverMap[driver.id] = {
+          image: driver.image,
+          driver_number: driver.driver_number
+        };
       });
 
       // Extract and sort drivers
@@ -33,7 +36,8 @@ const DriverData = ({ children }) => {
             drivers.push({
               ...driver,
               teamName: team.fullName,
-              imageUrl: imageMap[driver.id]
+              imageUrl: driverMap[driver.id] ? driverMap[driver.id].image : null,
+              driver_number: driverMap[driver.id] ? driverMap[driver.id].driver_number : null
             });
           });
         }
