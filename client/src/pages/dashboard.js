@@ -1,8 +1,8 @@
 // components/Dashboard.js
 
 import React from 'react';
-import racesData from '../models/races';
-import DriverStandings from './driverStanding';
+import racesData from '../models/grandprix';
+import DriverStandings from '../components/DriverComponents/driverStanding';
 import moment from 'moment';
 
 const Dashboard = () => {

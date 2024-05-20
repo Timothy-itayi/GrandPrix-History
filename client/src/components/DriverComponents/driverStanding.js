@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import DriverData from '../components/DriverComponents/driverData';
-import DriverCard from '../pages/driverCard';
-import DriverDetail from '../components/DriverComponents/driverDetail';
-import LoadingSpinner from '../components/LayoutComponents/loadingSpinner';
-import apiClient from '../../src/apis/apiClient';
+import DriverData from './driverData';
+import DriverCard from '../../pages/driverCard';
+import DriverDetail from './driverDetail';
+import LoadingSpinner from '../LayoutComponents/loadingSpinner';
+import apiClient from '../../apis/apiClient';
 
 const DriverStanding = () => {
   const [selectedDriver, setSelectedDriver] = useState(null);

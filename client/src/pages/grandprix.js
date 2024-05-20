@@ -1,24 +1,33 @@
 import React from 'react';
 
+import BlogCard from '../components/GrandprixComponents/blogCardComponent';
+
 const Grandprix = () => {
   return (
     <div className="flex justify-center">
-      <div className="flex flex-col items-center">
-        <h1 className="text-3xl font-bold mb-4">Formula 1 Grand Prix for 2024</h1>
-        <div className="text-lg">
-          <p>
-            The 2024 Formula 1 season promises excitement and fierce competition as drivers from around the world take on iconic tracks in pursuit of victory.
-          </p>
-          <p>
-            From the historic streets of Monaco to the high-speed circuits like Monza and Silverstone, each Grand Prix offers its own unique challenges and thrills.
-          </p>
-          <p>
-            Stay tuned for updates on race schedules, results, and all the latest news from the world of Formula 1.
-          </p>
+      <div className="max-w-2xl px-4">
+        <h1 className="text-3xl font-bold mb-4">Exploring Formula 1 Tracks for 2024</h1>
+        <p className="text-lg mb-6">
+          Join us on an exciting journey as we explore the iconic Formula 1 tracks scheduled for the 2024 season. From the historic streets of Monaco to the thrilling corners of Suzuka, each track offers its own unique challenges and breathtaking moments. Let's dive into the world of Formula 1 and discover the tracks that will define the upcoming season.
+        </p>
+        <div className="overflow-hidden animate-fade-up ">
+        <div>
+  <BlogCard 
+  imageUrls={[
+    "/f1Tracks/AusGp.png",
+  ]}
+  title="ausgp"
+  description="track ">
+
+  </BlogCard>
+</div>
+   
         </div>
       </div>
     </div>
   );
 };
+
+
 
 export default Grandprix;
