@@ -24,7 +24,8 @@ const DriverData = ({ children }) => {
       driverImages.forEach(driver => {
         driverMap[driver.id] = {
           image: driver.image,
-          driver_number: driver.driver_number
+          driver_number: driver.driver_number,
+          suitColor: driver.suitColor
         };
       });
 
@@ -37,7 +38,8 @@ const DriverData = ({ children }) => {
               ...driver,
               teamName: team.fullName,
               imageUrl: driverMap[driver.id] ? driverMap[driver.id].image : null,
-              driver_number: driverMap[driver.id] ? driverMap[driver.id].driver_number : null
+              driver_number: driverMap[driver.id] ? driverMap[driver.id].driver_number : null,
+              suitColor: driverMap[driver.id]? driverMap[driver.id].suitColor: null
             });
           });
         }

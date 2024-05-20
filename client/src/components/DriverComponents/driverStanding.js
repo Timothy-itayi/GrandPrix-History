@@ -20,16 +20,13 @@ const DriverStanding = () => {
       const response = await apiClient.get(`https://api.openf1.org/v1/position?session_key=latest&position<20`);
       const positionData = response.data;
 
-      // Get the current time
       const currentTime = new Date();
 
-      // Filter position data based on the selected driver's driver number and current time
       const driverPositionData = positionData
         .filter(driver => driver.driver_number === driverNumber)
         .sort((a, b) => new Date(b.date) - new Date(a.date));
 
       if (driverPositionData.length > 0) {
-        // Get the latest position of the selected driver from the filtered data
         const latestPosition = driverPositionData[0].position;
         setLatestPosition(latestPosition);
       } else {
@@ -51,7 +48,6 @@ const DriverStanding = () => {
       const sessionData = response.data;
 
       if (sessionData.length > 0) {
-        // Get the latest session data
         const latestSession = sessionData[0];
         setLatestSession(latestSession);
       } else {
@@ -90,7 +86,6 @@ const DriverStanding = () => {
             />
           ) : (
             <>
-             
               {isLoading ? (
                 <LoadingSpinner />
               ) : error ? (
