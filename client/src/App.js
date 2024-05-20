@@ -6,6 +6,7 @@ import './index.css';
 import Home from './pages/home'; 
 import SelectionPage from './pages/SelectionPage';
 import Dashboard from './pages/dashboard';
+import Grandprix from './pages/grandprix';
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/selection" element={<SelectionPage />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/grandprix" element={<Grandprix />} />
         </Routes>
       </div>
       </>

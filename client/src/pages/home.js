@@ -16,7 +16,9 @@ const Home = () => {
         <p className="text-gray-600 mb-4">
         Learn about the tracks for the Formula 1 2024 season 
         </p>
+        <Link to ="/grandprix">
         <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300">View GrandPrix</button>
+     </Link>
       </section>
 
       <section className="my-8 p-6 bg-white rounded-lg shadow-md">
