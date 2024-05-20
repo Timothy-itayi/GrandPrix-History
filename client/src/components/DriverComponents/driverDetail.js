@@ -1,24 +1,46 @@
 import React from 'react';
+import LoadingDriver from '../LayoutComponents/loadingDriver';
 
 const DriverDetail = ({ driver, latestPosition, latestSession, positionLoading, sessionLoading, positionError, sessionError, onBack }) => {
+  // Check if either loading flag is true
+  const isLoading = positionLoading || sessionLoading;
+
   return (
-    <div className="driver-detail text-white p-4">
-      <button onClick={onBack} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4">Back</button>
+    <div className="driver-detail text-white py-10 p-4">
       <div className="mb-4">
-        <h2 className="text-xl font-bold">{driver.firstName} {driver.lastName}</h2>
+        <h1 className="text-lg font-bold mb-2">Latest Position and Session</h1>
+
+        {isLoading ? (
+          <LoadingDriver />
+        ) : positionError || sessionError ? (
+          <p>Error loading data: {positionError || sessionError}</p>
+        ) : latestPosition !== null && latestSession !== null ? (
+          <>
+            <h2 className="text-xl font-bold">
+              {driver.firstName} {driver.lastName}
+            </h2>
+            <p className="text-xl font-bold">
+              Finished in P{latestPosition} at {latestSession.location}.
+            </p>
+            <img
+              className="object-contain h-48 w-48"
+              src={driver.imageUrl}
+              alt={`${driver.firstName} ${driver.lastName}`}
+            />
+          </>
+        ) : (
+          <p>No latest data available.</p>
+        )}
       </div>
-      {positionLoading || sessionLoading ? (
-        <p>Loading latest data...</p>
-      ) : positionError || sessionError ? (
-        <p>Error loading data: {positionError || sessionError}</p>
-      ) : latestPosition !== null && latestSession !== null ? (
-        <>
-          <h3 className="text-lg font-bold mb-2">Latest Position and Session</h3>
-          <p>Finished in P{latestPosition} at {latestSession.location}.</p>
-        </>
-      ) : (
-        <p>No latest data available.</p>
-      )}
+
+      <div className="pt-2">
+        <button
+          onClick={onBack}
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-8 rounded mb-4"
+        >
+          Back to Standings
+        </button>
+      </div>
     </div>
   );
 };

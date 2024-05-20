@@ -90,8 +90,7 @@ const DriverStanding = () => {
             />
           ) : (
             <>
-              <p className="text-2xl font-bold text-white mb-4">Driver Standings</p>
-
+             
               {isLoading ? (
                 <LoadingSpinner />
               ) : error ? (
