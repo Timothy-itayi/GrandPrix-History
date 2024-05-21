@@ -15,7 +15,7 @@ const Grandprix = () => {
         </p>
         <div className="overflow-hidden animate-fade-up ">
       
-        <div>
+        <div >
       
   <BlogCard 
   imageUrls={[
@@ -53,22 +53,14 @@ description="The high-speed nature of the Jeddah Corniche Circuit added an extra
   imageUrls={[
     "/grandprix/AustralianGP/ausflag.jpeg",
     "/grandprix/AustralianGP/ausGP.avif",
-    "/grandprix/AustralianGP/ausgp2.avif",
+    "/grandprix/AustralianGP/ausgp000.jpeg",
     "/f1Tracks/AusGp.png",
 
   ]}
   title="Melbourne Grand Prix"
-  description="The Melbourne Grand Prix Circuit has evolved over the years, 
-  adapting to meet modern standards while retaining its unique character.
-   It has witnessed iconic moments, including Ralf Schumacher's dramatic crash in 2002, 
-   highlighting the circuit's role in Formula 1 history. Despite changes, its allure remains, 
-   attracting fans worldwide to witness thrilling races on its challenging track.
-   The Melbourne Grand Prix Circuit spans approximately 5.3 kilometers, 
-   featuring 16 challenging turns. With top speeds reaching over 320 kilometers per hour,
-    it offers a blend of fast straights and technical corners.
-     The circuit typically includes two DRS (Drag Reduction System) 
-     zones strategically positioned to facilitate overtaking opportunities,
-      adding excitement to races.">
+  description="The Melbourne Grand Prix Circuit, a blend of fast straights and technical corners spanning approximately 5.3 kilometers with 16 challenging turns, has evolved over the years. It has retained its unique character while adapting to modern standards. The circuit has been the stage for iconic moments in Formula 1 history, such as Ralf Schumacher’s dramatic crash in 2002. Despite changes, its allure remains, attracting fans worldwide to witness thrilling races.
+
+  Earlier in the 2024 season, Carlos Sainz achieved an incredible victory at the Melbourne Grand Prix. This win was particularly remarkable as it followed his recovery from surgery, showcasing his resilience and skill. Sainz’s victory marked him as the only driver to win a race aside from Max Verstappen since 2023, a standout moment in his career.">
     
 
   </BlogCard>

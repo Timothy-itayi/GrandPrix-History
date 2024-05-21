@@ -34,7 +34,7 @@ const Home = () => {
           </Link>
         </section>
       </div>
-      <footer className="text-center py-20 ">
+      <footer className="text-center  ">
         <p className="text-white">
           &copy; {new Date().getFullYear()} GrandPrix History. All rights reserved.
         </p>
