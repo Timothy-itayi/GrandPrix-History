@@ -1,24 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
+import CustomCarousel from '../LayoutComponents/CustomCarousel'
 
-const BlogCard = ({ imageUrls = [], title , description}) => {
+const BlogCard = ({ imageUrls = [], title, description }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const toggleDescription = () => {
+    setIsExpanded(!isExpanded);
+  };
+
+  const truncateText = (text, maxLength) => {
+    if (text.length <= maxLength) return text;
+    const truncated = text.slice(0, maxLength);
+    const lastSpaceIndex = truncated.lastIndexOf(' ');
+    return truncated.slice(0, lastSpaceIndex) + '...';
+  };
+
+  const truncatedDescription = truncateText(description, 100);
+
   return (
-    <div className="bg-black overflow-hidden">
-      <div className="flex flex-col justify-between p-4 bg-black border border-white border-8 border-double rounded leading-normal">
-        <h5 className="mb-2 text-2xl text-center header-font tracking-tight text-white dark:text-white">{title}</h5>
-        <div className="mb-3 text-left">
-          {description.split('\n').map((paragraph, index) => (
-            <p key={index} className="font-normal text-white dark:text-white mb-3">{paragraph}</p>
-          ))}
-        </div>
-        <div className="my-8 p-6 bg-white rounded-lg">
-          {Array.isArray(imageUrls) && imageUrls.map((imageUrl, index) => (
-            <img
-              key={index}
-              className={`object-contain w-full h-full ${index > 0 ? '' : ''}`}
-              src={imageUrl}
-              alt={`${index}`}
-            />
-          ))}
+    <div className="bg-black">
+      <div>
+        <div className=" p-4 bg-white rounded-lg">
+          <h5 className="mb-2 text-2xl text-center font-bold tracking-tight text-black dark:text-black">
+            {title}
+          </h5>
+          {/* Use the CustomCarousel component */}
+          <div className="h-96 w-full"  >
+            <CustomCarousel imageUrls={imageUrls} />
+          </div>
+
+          {/* Optional: Add buttons */}
+          <div className="mb-3 text-left">
+            <p className="font-normal pt-4 text-black dark:text-black mb-3">
+              {isExpanded ? description : truncatedDescription}
+            </p>
+            {description.length > 100 && (
+              <button onClick={toggleDescription} className="text-blue-500 hover:underline">
+                {isExpanded ? 'See less' : 'See more'}
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </div>

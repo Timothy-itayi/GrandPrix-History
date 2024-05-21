@@ -1,7 +1,7 @@
 // Dashboard.test.js
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Dashboard from '../pages/dashboard';
+import Dashboard from './driverStanding';
 
 // Mock the races data
 jest.mock('../models/races', () => [

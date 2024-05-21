@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 const Home = () => {
   return (
-    <div className="overflow-hidden py-20 animate-fade-up">
+    <div className="overflow-hidden pb-20 animate-fade-up">
       <header className="text-center ">
         <div >
         <h1 className="text-7xl font-bold pb-10 text-gray-800 text-white">Welcome to GrandPrix History</h1>
@@ -21,7 +21,7 @@ const Home = () => {
           
           </p>
           <Link to="/grandprix">
-            <button className="bg-black text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300">View GrandPrix</button>
+            <button className="bg-orange-600 text-white font-bold px-4 py-2 rounded hover:bg-red-600 transition duration-300">View GrandPrix</button>
           </Link>
         </section>
         <section className="my-8 p-6 bg-white rounded-lg">
@@ -29,14 +29,14 @@ const Home = () => {
           <p className="text-gray-600 mb-4">
             Catch up with the Drivers Standings of the current Formula 1 Season
           </p>
-          <Link to="/dashboard">
-            <button className="bg-black text-white px-4 py-2 rounded hover:bg-green-600 transition duration-300">View Drivers</button>
+          <Link to="/drivers">
+            <button className="bg-orange-600 text-white font-bold  px-4 py-2 rounded hover:bg-red-600 transition duration-300">View Drivers</button>
           </Link>
         </section>
       </div>
-      <footer className="text-center h- ">
+      <footer className="text-center py-20 ">
         <p className="text-white">
-          &copy; 2024 GrandPrix History. All rights reserved.
+          &copy; {new Date().getFullYear()} GrandPrix History. All rights reserved.
         </p>
       </footer>
     </div>
