@@ -2,21 +2,26 @@ import React from 'react';
 
 const LoadingDriver = ({ large }) => {
   return (
-    <div className={`border border-blue-300 shadow rounded-md p-4 max-w-2xl w-full mx-auto ${large ? 'h-auto' : 'h-36'}`}>
-      <div className="animate-pulse flex space-x-4">
-        <div className="rounded-full bg-slate-700 h-10 w-10"></div>
-        <div className="flex-1 space-y-6 py-1">
-          <div className="h-2 bg-slate-700 rounded w-36"></div>
-          <div className="space-y-3">
-            <div className="grid grid-cols-3 gap-4">
-              <div className="h-2 bg-slate-700 rounded col-span-2 w-12"></div>
-              <div className="h-2 bg-slate-700 rounded col-span-1 w-12"></div>
-            </div>
-            <div className="h-2 bg-slate-700 rounded w-36"></div>
-          </div>
+    <div className="bg-white shadow-lg rounded-lg p-4 md:p-6 animate-pulse">
+    <div className=" grid grid-1 place-content-left  ">
+
+
+      
+      <div className="text-lg md:text-xl font-bold text-gray-800 mb-2 bg-gray-300 h-8 w-40 md:w-48 rounded"></div>
+      <div className="grid grid-1 place-content-left">
+
+        <div className="grid grid-1 pb-2 place-content-left">
+          <div className="bg-gray-300 h-4 w-20 md:w-24 mb-1 rounded"></div>
+          <div className="bg-gray-300 h-4 w-20 md:w-24 rounded"></div>
         </div>
       </div>
+      <div className="grid grid-1 place-content-left">
+      <div className="w-24 h-24 md:w-32 md:h-32 bg-gray-300 ml-10 rounded-full mb-4"></div>
+      </div>
+      </div>
     </div>
+    
+ 
   );
 };
 

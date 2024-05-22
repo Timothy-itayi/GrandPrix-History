@@ -1,6 +1,7 @@
+const flowbite = require("flowbite-react/tailwind");
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.js"],
+  content: ["./src/**/*.js", flowbite.content()],
   theme: {
     extend: {
       gridRow:{
@@ -25,7 +26,8 @@ module.exports = {
     grayscale:['responsive', 'hover']
   },
   plugins: [ 
-    require('tailwindcss-animated')
+    require('tailwindcss-animated'),
+    flowbite.plugin()
   ],
 }
 

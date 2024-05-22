@@ -2,3 +2,28 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+
+/* tailwind.css */
+@layer components {
+  /* Custom CSS */
+.slider-container {
+    position: relative;
+  }
+  
+  .custom-dot {
+    width: 10px; /* Medium size */
+    height: 10px; /* Medium size */
+    background-color: red; /* Red color */
+    border-radius: 50%; /* Rounded shape */
+    position: absolute;
+    bottom: 10px; /* Adjust as needed */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+  }
+  
+  .custom-dot.slick-active {
+    background-color: green; /* Green color for active dot */
+  }
+  
+  }
+  
