@@ -16,7 +16,7 @@ const NavBar = () => {
       <div className="max-w-screen-xl flex flex-wrap items-right justify-between mx-auto p-4">
       <ImageWithHover
     src1="logos/driver0.png"
-    to1="/drivers"
+    to1="/cars"
     src2="logos/helmet.png"
     to2="/"
     alt="Image"
@@ -42,15 +42,15 @@ const NavBar = () => {
             <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
 </div>
 </div>
-<ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-black md:dark:bg-black dark:border-gray-700">
+<ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border  rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-black md:dark:bg-black dark:border-gray-700">
   <li className="mb-2 md:mb-0">
-    <Link to="/" className="block py-2 px-3 rounded md:rounded-none text-xl font-bold text-white bg-black md:bg-transparent md:text-white md:p-w md:dark:text-white hover:text-white hover:bg-gray-300" aria-current="page">Home</Link>
+    <Link to="/" className="block py-2 px-3 rounded md:rounded text-xl font-bold text-white bg-black md:bg-transparent md:text-white md:p-w md:dark:text-white hover:text-white hover:bg-gray-700" aria-current="page">Home</Link>
   </li>
   <li className="mb-2 md:mb-0">
-    <Link to="/drivers" className="block py-2 px-3 rounded md:rounded-none text-xl font-bold text-white bg-black md:bg-transparent md:text-white md:p-w md:dark:text-white hover:text-white hover:bg-gray-300" aria-current="page">Drivers</Link>
+    <Link to="/grandprix" className="block py-2 px-3 rounded md:rounded text-xl font-bold text-white bg-black md:bg-transparent md:text-white md:p-w md:dark:text-white hover:text-white hover:bg-gray-700" aria-current="page">Grandprix</Link>
   </li>
   <li className="mb-2 md:mb-0">
-    <Link to="/grandprix" className="block py-2 px-3 rounded md:rounded-none text-xl font-bold text-white bg-black md:bg-transparent md:text-white md:p-w md:dark:text-white hover:text-white hover:bg-gray-300" aria-current="page">Grandprix</Link>
+    <Link to="/about" className="block py-2 px-3 rounded md:rounded text-xl font-bold text-white bg-black md:bg-transparent md:text-white md:p-w md:dark:text-white hover:text-white hover:bg-gray-700" aria-current="page">About</Link>
   </li>
 </ul>
 </div>

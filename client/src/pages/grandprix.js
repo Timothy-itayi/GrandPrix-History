@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Accordion, AccordionContent, AccordionPanel } from 'flowbite-react';
 import BlogCard from '../components/GrandprixComponents/blogCardComponent';
 import ScrollToTop from '../components/LayoutComponents/scrollToTop';
 
@@ -14,27 +14,27 @@ const Grandprix = () => {
           Explore all 24 Formula 1 tracks scheduled for the 2024 season. The longest in Formula 1 history. From the historic streets of Monaco to the thrilling corners of Suzuka, each track offers its own unique challenges and breathtaking moments.
         </p>
         <div className="overflow-hidden animate-fade-up ">
-      
-        <div >
-      
-  <BlogCard 
-  imageUrls={[
-    "/grandprix/BahrainGP/bahrainflag.jpeg",
-    "/grandprix/BahrainGP/bahrain02.jpeg",
-    "/grandprix/BahrainGP/bahrain01.jpeg",
-    "/f1Tracks/Bahrain-circuit.png",
-   
-    
-
-  ]}
-  title="Bahrain Grand Prix"
   
- description="The Bahrain Grand Prix, held annually at the Bahrain International Circuit, is a prominent fixture on the Formula 1 calendar, renowned for its thrilling races and unique setting. One of the distinctive features of the Bahrain Grand Prix is its status as Formula 1's first-ever night race in the Middle East. Beyond its innovative racing format, the Bahrain Grand Prix holds historical significance as the first Formula 1 race to be held in the Middle East, paving the way for the region's growing influence in motorsport. "
-
- 
->
-
-  </BlogCard>
+  
+      
+      <BlogCard 
+      imageUrls={[
+        "/grandprix/BahrainGP/bahrainflag.jpeg",
+        "/grandprix/BahrainGP/bahrain02.jpeg",
+        "/grandprix/BahrainGP/bahrain01.jpeg",
+        "/f1Tracks/Bahrain-circuit.png",
+       
+        
+    
+      ]}
+      title="Bahrain Grand Prix"
+      
+     description="The Bahrain Grand Prix, held annually at the Bahrain International Circuit, is a prominent fixture on the Formula 1 calendar, renowned for its thrilling races and unique setting. One of the distinctive features of the Bahrain Grand Prix is its status as Formula 1's first-ever night race in the Middle East. Beyond its innovative racing format, the Bahrain Grand Prix holds historical significance as the first Formula 1 race to be held in the Middle East, paving the way for the region's growing influence in motorsport. "
+    
+     
+    />
+    
+  
   <div className="py-10">
   <BlogCard
   imageUrls={[
@@ -545,7 +545,7 @@ description="The high-speed nature of the Jeddah Corniche Circuit added an extra
    
         </div>
       </div>
-    </div>
+    
   );
 };
 
