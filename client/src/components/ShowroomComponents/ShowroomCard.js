@@ -5,7 +5,7 @@ const ShowroomCard = ({ imageUrls = [], title }) => {
   return (
     <div className="bg-black">
     <div>
-      <div className=" p-4 bg-white rounded-lg">
+      <div className=" p-10 bg-white ">
         <h5 className="mb-2 text-2xl text-center font-bold tracking-tight text-black dark:text-black">
           {title}
         </h5>
