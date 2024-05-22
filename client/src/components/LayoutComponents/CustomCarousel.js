@@ -18,6 +18,7 @@ const CustomCarousel = ({ imageUrls = [] }) => {
         indicators={true}
         indicatoractiveclasses={options.indicators.activeClasses}
         indicatorinactiveclasses={options.indicators.inactiveClasses}
+        pauseOnHover={true}
       >
         {Array.isArray(imageUrls) &&
           imageUrls.map((imageUrl) => (
