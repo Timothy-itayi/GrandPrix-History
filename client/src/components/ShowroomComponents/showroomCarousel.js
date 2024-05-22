@@ -1,9 +1,8 @@
 import React from 'react';
 import { Carousel } from 'flowbite-react';
-import ArrowButton from './ArrowButton'; // Adjust the import path as necessary
+import ArrowButton from '../LayoutComponents/ArrowButton'
 
-
-const CustomCarousel = ({ imageUrls = [] }) => {
+const ShowroomCarousel = ({ imageUrls = [] }) => {
   const options = {
     indicators: {
       activeClasses: 'bg-white dark:bg-black',
@@ -32,9 +31,9 @@ const CustomCarousel = ({ imageUrls = [] }) => {
             </div>
           ))}
       </Carousel>
-      
+  
     </div>
   );
 };
 
-export default CustomCarousel;
+export default ShowroomCarousel;

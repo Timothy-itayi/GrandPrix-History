@@ -3,6 +3,7 @@ import { Accordion, AccordionContent, AccordionPanel } from 'flowbite-react';
 import BlogCard from '../components/GrandprixComponents/blogCardComponent';
 import ScrollToTop from '../components/LayoutComponents/scrollToTop';
 
+
 const Grandprix = () => {
   return (
     

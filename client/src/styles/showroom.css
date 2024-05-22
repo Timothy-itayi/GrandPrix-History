@@ -1,0 +1,10 @@
+.showroom-card {
+    opacity: 100;
+    
+    transition: opacity 2s ease-in, transform 2s ease-in;
+}
+
+.showroom-card.visible {
+    opacity: 1;
+    transform: hidden;
+}
