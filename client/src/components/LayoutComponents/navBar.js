@@ -16,7 +16,7 @@ const NavBar = () => {
       <div className="max-w-screen-xl flex flex-wrap items-right justify-between mx-auto p-4">
       <ImageWithHover
     src1="logos/driver0.png"
-    to1="/cars"
+    to1="/showroom"
     src2="logos/helmet.png"
     to2="/"
     alt="Image"

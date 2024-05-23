@@ -29,7 +29,7 @@ const BlogCard = ({ imageUrls = [], title, description }) => {
             <CustomCarousel imageUrls={imageUrls} />
           </div>
 
-          {/* Optional: Add buttons */}
+          {/* see more buttons */}
           <div className="mb-3 text-left">
             <p className="font-normal pt-4 text-black dark:text-black mb-3">
               {isExpanded ? description : truncatedDescription}

@@ -1,17 +1,15 @@
 import React from 'react';
 import { Carousel } from 'flowbite-react';
-import ArrowButton from './ArrowButton'; // Adjust the import path as necessary
 
 
-const CustomCarousel = ({ imageUrls = [] }) => {
+const ShowroomCarousel = ({ imageUrls = [] }) => {
  
-
   return (
     <div className="relative h-full w-full">
       <Carousel
-        leftControl={<ArrowButton direction="left" className="text-2xl text-white" />}
-        rightControl={<ArrowButton direction="right" className="text-2xl text-white" />}
+     
         pauseOnHover={true}
+        slideInterval={8000}
       >
         {Array.isArray(imageUrls) &&
           imageUrls.map((imageUrl) => (
@@ -24,9 +22,9 @@ const CustomCarousel = ({ imageUrls = [] }) => {
             </div>
           ))}
       </Carousel>
-      
+  
     </div>
   );
 };
 
-export default CustomCarousel;
+export default ShowroomCarousel;
