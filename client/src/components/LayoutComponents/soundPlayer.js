@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { FaRegCirclePlay, FaRegCirclePause } from "react-icons/fa6";
-
+import { AiOutlineSound } from "react-icons/ai";
 const SoundPlayer = ({ selectedSound }) => {
   const [play, setPlay] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -38,7 +38,6 @@ const SoundPlayer = ({ selectedSound }) => {
     setCurrentTime(value);
   }
 
-  // Format time as mm:ss
   function formatTime(seconds) {
     const minutes = Math.floor(seconds / 60);
     const secs = Math.floor(seconds % 60);
@@ -58,26 +57,10 @@ const SoundPlayer = ({ selectedSound }) => {
   }, []);
 
   return (
-    <div className="items-center justify-center mb-10 bg-black rounded-full">
+    <div className="items-center justify-center mb-10 bg-black rounded-full p-4">
       <div className="flex-col text-center">
-        <div className="relative filter invert">
-          <button
-            onClick={toggleAudio}
-            type="button"
-            className="items-center rounded-full p-2"
-          >
-            {!play ? (
-              <FaRegCirclePlay className="h-12 w-12" aria-hidden="true" />
-            ) : (
-              <FaRegCirclePause className="h-12 w-12" aria-hidden="true" />
-            )}
-          </button>
-
-     
-        </div>
-
         {/* Audio Timeline */}
-        <div className="flex items-center  justify-center ">
+        <div className="flex items-center gap-4 mb-4">
           <span className="text-white">{formatTime(currentTime)}</span>
           <input
             type="range"
@@ -85,18 +68,38 @@ const SoundPlayer = ({ selectedSound }) => {
             max={duration}
             value={currentTime}
             onChange={handleSeek}
-            className="mx-2"
+            className="flex-grow"
           />
           <span className="text-white">{formatTime(duration)}</span>
         </div>
-        <div className="grid gap-4 md:flex md:flex-row md:flex-wrap justify-center  rounded-full pt-2 pb-3 pl-2 items-center">
-            <input
-              type="range"
-              min={0}
-              max={MAX}
-              onChange={handleVolume}
-            />
+
+        {/* Controls */}
+        <div className="flex items-center justify-start  gap-4  rounded-full">
+          <div className="filter invert">
+            <button onClick={toggleAudio} type="button">
+              {!play ? (
+                <FaRegCirclePlay className="h-12 w-12" aria-hidden="true" />
+              ) : (
+                <FaRegCirclePause className="h-12 w-12" aria-hidden="true" />
+              )}
+            </button>
           </div>
+
+          <div className="flex items-center gap-2">
+            <div>
+            <AiOutlineSound className="text-white h-10 w-10" /> 
+            </div>
+            <div>
+              <input
+                type="range"
+                min={0}
+                max={MAX}
+                onChange={handleVolume}
+                className="flex"
+              />
+            </div>
+          </div>
+        </div>
       </div>
       <audio ref={audioRef} src={`/audio/${selectedSound.waveType}`} />
     </div>

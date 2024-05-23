@@ -5,10 +5,10 @@ import ShowroomCard from '../components/ShowroomComponents/ShowroomCard';
 import sounds from "../models/sounds";
 import SoundPlayer from '../components/LayoutComponents/soundPlayer';
 
-import useScrollAnimation from '../hooks/useScrollAnimation'; // Adjust the import path as needed
+import useScrollAnimation from '../hooks/useScrollAnimation'; 
 
 const Showroom = () => {
-  // Use custom scroll animation hook
+  // Custom hook animation for SHowroom cards 
   const [ref1, animationControl1] = useScrollAnimation(0.3);
   const [ref2, animationControl2] = useScrollAnimation(0.3);
   const [ref3, animationControl3] = useScrollAnimation(0.3);
@@ -19,10 +19,10 @@ const Showroom = () => {
       <div className="max-w-2xl px-4">
         <h1 className="text-7xl text-white font-bold mb-4">Iconic Formula 1 Cars</h1>
         <p className="text-lg text-white mb-6">
-          Learn about the Iconic Formula 1 cars
+        Discover the Legends: Dive into the thrilling world of iconic Formula 1 cars and uncover the stories behind their unforgettable journeys.
         </p>
 
-        <div ref={ref1}>
+<div ref={ref1} >
           <motion.div
             initial={{ opacity: 0 }}
             animate={animationControl1}
@@ -40,11 +40,13 @@ const Showroom = () => {
 
             
               ]}
-              title="Ferrari's F2004"
+              title="Ferrari's Favorite: The F2004"
             />
             <SoundPlayer selectedSound={sounds[0]} />
           </motion.div>
         </div>
+
+        
 
         <div ref={ref2} >
           <motion.div
@@ -64,7 +66,7 @@ const Showroom = () => {
                 "/F1cars/Mercedes/merc05.jpeg",
               
               ]}
-              title="Mercedes' W11"
+              title="Mercedes Final Flash: The W11"
             />
             <SoundPlayer selectedSound={sounds[1]} />
           </motion.div>
@@ -89,7 +91,7 @@ const Showroom = () => {
                 
                 
               ]}
-              title="Renault R25-R26"
+              title="Renault's Reign: The R25/R26   "
             />
             <SoundPlayer selectedSound={sounds[2]} />
           </motion.div>
@@ -112,7 +114,7 @@ const Showroom = () => {
        
                 
               ]}
-              title="RB20"
+              title="The RB20: Unleashing The Beast"
             />
             <SoundPlayer selectedSound={sounds[3]} />
           </motion.div>

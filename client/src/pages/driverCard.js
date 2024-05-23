@@ -17,15 +17,15 @@ const DriverCard = ({ driver, onClick }) => {
         className="w-24 h-24 md:w-32 md:h-32  rounded-full mb-4 border-4"
         style={{ border: `5px double ${hover ? driver.suitColor : 'black'}` }}
       />
-      <h2 className="text-lg md:text-xl font-bold text-white mb-2 text-center">{driver.firstName} {driver.lastName}</h2>
+      <h2 className="text-lg md:text-xl card-font  text-white mb-2 text-center">{driver.firstName} {driver.lastName}</h2>
       <p className="text-sm md:text-base text-white mb-1 text-center">
-        <span className="font-bold">Driver Number:</span> {driver.driver_number}</p>
+        <span className="name-font ">Driver Number:</span> {driver.driver_number}</p>
       <p className="text-sm md:text-base text-white mb-1 text-center">
-        <span className="font-bold">Team:</span> {driver.teamName}</p>
+        <span className="name-font ">Team:</span> {driver.teamName}</p>
       <p className="text-sm md:text-base text-white mb-1 text-center">
-        <span className="font-bold">Points:</span> {driver.standing.points}</p>
+        <span className="name-font ">Points:</span> {driver.standing.points}</p>
       <p className="text-sm md:text-base text-white mb-1 text-center">
-        <span className="font-bold">Position:</span> {driver.standing.position}</p>
+        <span className="name-font ">Position:</span> {driver.standing.position}</p>
     </div>
   );
 };
