@@ -25,7 +25,7 @@ const About = () => {
                     Let's connect and enjoy the ride through motorsport history with GPHistory!
                 </p>
                 <p className="mt-10">
-                    Special thanks to OpenF1 API for providing the current session data, P10 for the inspiration, HyperRace API for the current standings, and my girlfriend Gracie for helping with some of the design.
+                    Special thanks to OpenF1 API for providing the current session data, P10 for the inspiration, HyperRace API for the current standings, ElevenLabs from the Ai voice  and my girlfriend Gracie for helping with some of the design.
                 </p>
             </div>
         </div>
