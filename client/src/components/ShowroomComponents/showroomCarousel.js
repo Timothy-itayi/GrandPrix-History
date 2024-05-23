@@ -1,24 +1,15 @@
 import React from 'react';
 import { Carousel } from 'flowbite-react';
-import ArrowButton from '../LayoutComponents/ArrowButton'
+
 
 const ShowroomCarousel = ({ imageUrls = [] }) => {
-  const options = {
-    indicators: {
-      activeClasses: 'bg-white dark:bg-black',
-      inactiveClasses: 'bg-black dark:bg-gray-800/50 hover:bg-white dark:hover:bg-black',
-    },
-  };
-
+ 
   return (
     <div className="relative h-full w-full">
       <Carousel
-        leftControl={<ArrowButton direction="left" className="text-2xl text-white" />}
-        rightControl={<ArrowButton direction="right" className="text-2xl text-white" />}
-        indicators={true}
-        indicatoractiveclasses={options.indicators.activeClasses}
-        indicatorinactiveclasses={options.indicators.inactiveClasses}
+     
         pauseOnHover={true}
+        slideInterval={8000}
       >
         {Array.isArray(imageUrls) &&
           imageUrls.map((imageUrl) => (
