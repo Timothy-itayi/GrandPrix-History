@@ -1,8 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import LinearProgress from '@mui/material/LinearProgress';
 
-
-
 const SoundPlayer = ({ selectedSound }) => {
   const [play, setPlay] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -25,24 +23,33 @@ const SoundPlayer = ({ selectedSound }) => {
   function handleTimeUpdate() {
     const currentTime = audioRef.current.currentTime;
     setCurrentTime(currentTime);
-    setProgress(normalize(currentTime, 0, duration));
+    setProgress(normalize(currentTime, duration));
+
   }
 
   function handleLoadedMetadata() {
-    setDuration(audioRef.current.duration);
+    setDuration(audioRef.current.duration || 0 );
+    
   }
 // End the Audio  //
   function handleEnded() {
-    setCurrentTime(duration);
+    setCurrentTime(duration );
     setProgress(100);
     setPlay(false);
 
   }
 
-
-  function normalize(value, min, max) {
-    return ((value - min) * 100) / (max - min);
-  }
+        //Check that the max is not Zero before we convert the current time of the audio to a percentage value (ranging from 0 to 100).
+         
+        function normalize(value, max) {
+          if (max === 0 ) {
+            return 0;
+          }
+          let result = (value / max) * 100;
+          return result > 100 ? 100 : result;
+        }
+        
+  
 
 
   function formatTime(seconds) {
@@ -65,8 +72,18 @@ const SoundPlayer = ({ selectedSound }) => {
     }
   }, []);
 
-  
-  
+  // Calculate progress when duration changes
+useEffect(() => {
+  setProgress(normalize(currentTime, duration));
+}, [duration]);
+
+// Calculate progress when currentTime changes
+useEffect(() => {
+  setProgress(normalize(currentTime, duration));
+}, [currentTime]);
+
+  console.log(formatTime(progress))
+  console.log(progress)
   return (
     <div className="items-center justify-center mb-10 bg-black rounded-full p-4">
       <div className="flex-col text-center">
