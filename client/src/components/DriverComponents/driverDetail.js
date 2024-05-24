@@ -1,5 +1,5 @@
 import React from 'react';
-import LoadingDriver from '../LayoutComponents/loadingDriver';
+import LoadingDriver from '../DriverComponents/loadingDriver';
 
 const DriverDetail = ({ driver, latestPosition, latestSession, positionLoading, sessionLoading, positionError, sessionError, onBack }) => {
   // Check if either loading flag is true

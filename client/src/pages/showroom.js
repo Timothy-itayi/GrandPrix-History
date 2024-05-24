@@ -3,7 +3,7 @@ import ScrollToTop from '../components/LayoutComponents/scrollToTop';
 import { motion } from 'framer-motion';
 import ShowroomCard from '../components/ShowroomComponents/ShowroomCard';
 import sounds from "../models/sounds";
-import SoundPlayer from '../components/LayoutComponents/soundPlayer';
+import SoundPlayer from '../components/ShowroomComponents/soundPlayer';
 
 import useScrollAnimation from '../hooks/useScrollAnimation'; 
 
@@ -114,7 +114,7 @@ const Showroom = () => {
        
                 
               ]}
-              title="The RB20: Unleashing The Beast"
+              title="The RB19: Unleashing The Beast"
             />
             <SoundPlayer selectedSound={sounds[3]} />
           </motion.div>

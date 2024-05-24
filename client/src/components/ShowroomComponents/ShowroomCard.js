@@ -1,6 +1,3 @@
-
-
-
 import React from 'react';
 import ShowroomCarousel from '../ShowroomComponents/showroomCarousel'
 import '../../styles/font.css'

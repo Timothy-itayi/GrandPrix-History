@@ -1,13 +1,16 @@
 import React, { useRef, useState, useEffect } from "react";
-import { FaRegCirclePlay, FaRegCirclePause } from "react-icons/fa6";
-import { AiOutlineSound } from "react-icons/ai";
+import LinearProgress from '@mui/material/LinearProgress';
+
+
+
 const SoundPlayer = ({ selectedSound }) => {
   const [play, setPlay] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const audioRef = useRef(null);
-  const MAX = 20;
+ const [ progress , setProgress] = useState(0);
 
+  const audioRef = useRef(null);
+    // PLay and Pause audio track 
   function toggleAudio() {
     if (play) {
       audioRef.current?.pause();
@@ -17,26 +20,30 @@ const SoundPlayer = ({ selectedSound }) => {
       setPlay(true);
     }
   }
-
-  function handleVolume(e) {
-    const { value } = e.target;
-    const volume = Number(value) / MAX;
-    audioRef.current.volume = volume;
-  }
-
+ 
+  // display time for audio 
   function handleTimeUpdate() {
-    setCurrentTime(audioRef.current.currentTime);
+    const currentTime = audioRef.current.currentTime;
+    setCurrentTime(currentTime);
+    setProgress(normalize(currentTime, 0, duration));
   }
 
   function handleLoadedMetadata() {
     setDuration(audioRef.current.duration);
   }
+// End the Audio  //
+  function handleEnded() {
+    setCurrentTime(duration);
+    setProgress(100);
+    setPlay(false);
 
-  function handleSeek(e) {
-    const { value } = e.target;
-    audioRef.current.currentTime = value;
-    setCurrentTime(value);
   }
+
+
+  function normalize(value, min, max) {
+    return ((value - min) * 100) / (max - min);
+  }
+
 
   function formatTime(seconds) {
     const minutes = Math.floor(seconds / 60);
@@ -49,59 +56,56 @@ const SoundPlayer = ({ selectedSound }) => {
     if (audio) {
       audio.addEventListener("timeupdate", handleTimeUpdate);
       audio.addEventListener("loadedmetadata", handleLoadedMetadata);
+      audio.addEventListener("ended", handleEnded);
       return () => {
         audio.removeEventListener("timeupdate", handleTimeUpdate);
         audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
+        audio.removeEventListener("ended", handleEnded);
       };
     }
   }, []);
 
+  
+  
   return (
     <div className="items-center justify-center mb-10 bg-black rounded-full p-4">
       <div className="flex-col text-center">
         {/* Audio Timeline */}
         <div className="flex items-center gap-4 mb-4">
-          <span className="text-white">{formatTime(currentTime)}</span>
-          <input
-            type="range"
-            min={0}
-            max={duration}
-            value={currentTime}
-            onChange={handleSeek}
-            className="flex-grow"
+          
+        <span className="text-white">{formatTime(currentTime)}</span>
+       <div className="flex grow">
+      
+        <LinearProgress variant="determinate"
+          sx={{ width: '100%' }}
+          value={progress}
+        
           />
+
+     
+      
+       </div>
+      
           <span className="text-white">{formatTime(duration)}</span>
         </div>
 
         {/* Controls */}
-        <div className="flex items-center justify-start  gap-4  rounded-full">
+        <div className="flex items-center justify-center mr-4  gap-4  rounded-full">
           <div className="filter invert">
             <button onClick={toggleAudio} type="button">
               {!play ? (
-                <FaRegCirclePlay className="h-12 w-12" aria-hidden="true" />
+                <img src="logos/player-play.png"  className="h-12 w-12 " aria-hidden="true" />
               ) : (
-                <FaRegCirclePause className="h-12 w-12" aria-hidden="true" />
+                <img src="logos/player-pause.png" className="h-12 w-12" aria-hidden="true" />
               )}
             </button>
           </div>
 
-          <div className="flex items-center gap-2">
-            <div>
-            <AiOutlineSound className="text-white h-10 w-10" /> 
-            </div>
-            <div>
-              <input
-                type="range"
-                min={0}
-                max={MAX}
-                onChange={handleVolume}
-                className="flex"
-              />
-            </div>
-          </div>
-        </div>
+        
+         
       </div>
       <audio ref={audioRef} src={`/audio/${selectedSound.waveType}`} />
+    </div>
     </div>
   );
 };

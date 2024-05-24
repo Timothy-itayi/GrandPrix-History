@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import DriverData from './driverData';
 import DriverCard from '../../pages/driverCard';
-import DriverDetail from './driverDetail';
-import LoadingSpinner from '../LayoutComponents/loadingSpinner';
+import DriverDetail from '../DriverComponents/loadingDriverDetail';
+import LoadingSpinner from './loadingDriverDetail';
 import apiClient from '../../apis/apiClient';
 
 const DriverStanding = () => {
