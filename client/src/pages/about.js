@@ -19,7 +19,7 @@ const About = () => {
                     I love the rush of high-speed racing and connecting with fellow fans who share my enthusiasm for the sport. Through GPHistory, I hope to celebrate the legacy of motorsport and inspire future racing enthusiasts.
                 </p>
                 <p className="mb-6">
-                    Besides motorsport, I’m also a web developer. If you want to see more of my work, check out my portfolio <a href="https://timothyitayi.com/" className="text-blue-500">here</a>.
+                    Besides motorsport, I’m also a Graduate Web Developer. If you want to see more of my work, check out my portfolio <a href="https://timothyitayi.com/" className="text-blue-500">here</a>.
                 </p>
                 <p className="mb-6">
                     Let's connect and enjoy the ride through motorsport history with GPHistory!
