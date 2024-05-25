@@ -2,24 +2,24 @@ const sounds = [
     {
         id: 0,
       title: "Ferrari",
-      waveType: "F2004.mp3",
+      waveType: "Ferrari.mp3",
 
     },
     {
         id: 1,
         title: "Mercedes",
-        waveType: "W11.mp3",
+        waveType: "Mercedes.mp3",
   
       },
       {
         id: 2,
         title: "Renault",
-        waveType: "R25_R26.mp3",
+        waveType: "Renault.mp3",
       },
       {
         id: 3,
         title: "RedBull",
-        waveType: "RB19.mp3"
+        waveType: "Redbull.mp3"
       },
     
 ]
