@@ -48,35 +48,12 @@ const Showroom = () => {
 
         
 
+
+       
         <div ref={ref2} >
           <motion.div
             initial={{ opacity: 0 }}
             animate={animationControl2}
-            className="showroom-card"
-          >
-            <ShowroomCard
-              imageUrls={[
-                "/F1cars/Mercedes/merc06.jpeg",
-                "/F1cars/Mercedes/merc01.png",
-                "/F1cars/Mercedes/merc04.png", 
-                "/F1cars/Mercedes/merc00.png",  
-                "/F1cars/Mercedes/merc02.jpeg",
-                "/F1cars/Mercedes/merc03.png",
-              
-                "/F1cars/Mercedes/merc05.jpeg",
-              
-              ]}
-              title="Mercedes Final Flash: The W11"
-            />
-            <SoundPlayer selectedSound={sounds[1]} />
-          </motion.div>
-        </div>
-
-       
-        <div ref={ref3} >
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={animationControl3}
             className="showroom-card"
           >
             <ShowroomCard
@@ -94,6 +71,31 @@ const Showroom = () => {
               title="Renault's Reign: The R25/R26   "
             />
             <SoundPlayer selectedSound={sounds[2]} />
+          </motion.div>
+        </div>
+
+
+        <div ref={ref3} >
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={animationControl3}
+            className="showroom-card"
+          >
+            <ShowroomCard
+              imageUrls={[
+                "/F1cars/Mercedes/merc06.jpeg",
+                "/F1cars/Mercedes/merc01.png",
+                "/F1cars/Mercedes/merc04.png", 
+                "/F1cars/Mercedes/merc00.png",  
+                "/F1cars/Mercedes/merc02.jpeg",
+                "/F1cars/Mercedes/merc03.png",
+              
+                "/F1cars/Mercedes/merc05.jpeg",
+              
+              ]}
+              title="Mercedes' Final Flash: The W11"
+            />
+            <SoundPlayer selectedSound={sounds[1]} />
           </motion.div>
         </div>
         <div ref={ref4} >
