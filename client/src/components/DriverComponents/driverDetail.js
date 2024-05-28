@@ -1,12 +1,12 @@
 import React from 'react';
 import LoadingDriver from '../DriverComponents/loadingDriver';
 
-const DriverDetail = ({ driver, latestPosition, latestSession, positionLoading, sessionLoading, positionError, sessionError, onBack }) => {
+const Detail = ({ driver, latestPosition, latestSession, positionLoading, sessionLoading, positionError, sessionError, onBack }) => {
   // Check if either loading flag is true
   const isLoading = positionLoading || sessionLoading;
 
   return (
-    <div className="driver-detail text-white py-10 p-4">
+    <div className="driver-detail text-center text-white py-10 p-4">
       <div className="mb-4">
         <h1 className="text-lg font-bold mb-2">Latest Position and Session</h1>
 
@@ -19,14 +19,17 @@ const DriverDetail = ({ driver, latestPosition, latestSession, positionLoading, 
             <h2 className="text-xl font-bold">
               {driver.firstName} {driver.lastName}
             </h2>
-            <p className="text-xl font-bold">
-              Finished in P{latestPosition} at {latestSession.location}.
-            </p>
-            <img
-              className="object-contain h-48 w-48"
-              src={driver.imageUrl}
-              alt={`${driver.firstName} ${driver.lastName}`}
-            />
+            <div className="flex flex-col items-center">
+  <p className=" font-bold max-w-xs">
+    Finished P{latestPosition} in {latestSession.session_type} at {latestSession.location}.
+  </p>
+  <img
+    className="object-contain h-48 w-48"
+    src={driver.imageUrl}
+    alt={`${driver.firstName} ${driver.lastName}`}
+  />
+</div>
+
           </>
         ) : (
           <p>No latest data available.</p>
@@ -45,4 +48,4 @@ const DriverDetail = ({ driver, latestPosition, latestSession, positionLoading, 
   );
 };
 
-export default DriverDetail;
+export default Detail;

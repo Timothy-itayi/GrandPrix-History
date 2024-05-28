@@ -2,7 +2,7 @@ import React from 'react';
 
 const LoadingDriver = ({ large }) => {
   return (
-    <div className="bg-white shadow-lg rounded-lg p-4 md:p-6 animate-pulse">
+    <div className="bg-white shadow-lg items-center justify-center rounded-lg p-4 md:p-6 animate-pulse">
     <div className=" grid grid-1 place-content-left  ">
 
 

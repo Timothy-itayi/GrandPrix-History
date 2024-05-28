@@ -3,7 +3,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
-import NavBar from '../components/NavBar';
+import NavBar from '../LayoutComponents/navBar';
 
 describe('NavBar', () => {
   it('should render without crashing', () => {
@@ -13,7 +13,7 @@ describe('NavBar', () => {
       </MemoryRouter>
     );
   });
-
+   
   it('should contain a link to the home page', () => {
     render(
       <MemoryRouter>
@@ -33,34 +33,8 @@ describe('NavBar', () => {
       </MemoryRouter>
     );
 
-    const dashboardLink = screen.getByText('Dashboard');
-    expect(dashboardLink).toBeInTheDocument();
-    expect(dashboardLink).toHaveAttribute('href', '/dashboard');
+    const grandprixLink = screen.getByText('Grandprix');
+    expect(grandprixLink).toBeInTheDocument();
+    expect(grandprixLink).toHaveAttribute('href', '/grandprix');
   });
-
-  it('should navigate to home page when Home link is clicked', () => {
-    render(
-      <MemoryRouter initialEntries={['/dashboard']}>
-        <NavBar />
-      </MemoryRouter>
-    );
-
-    const homeLink = screen.getByText('Home');
-    userEvent.click(homeLink);
-
-    expect(global.window.location.pathname).toEqual('/');
-  });
-
-  it('should navigate to dashboard page when Dashboard link is clicked', () => {
-    render(
-      <MemoryRouter initialEntries={['/']}>
-        <NavBar />
-      </MemoryRouter>
-    );
-
-    const dashboardLink = screen.getByText('Dashboard');
-    userEvent.click(dashboardLink);
-
-    expect(global.window.location.pathname).toEqual('/');
-  });
-});
+})

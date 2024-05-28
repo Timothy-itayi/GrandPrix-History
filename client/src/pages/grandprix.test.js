@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import Grandprix from '../pages/grandprix';
+import '@testing-library/jest-dom/extend-expect';
 
 describe('Grandprix Component', () => {
   it('renders without crashing', () => {
@@ -18,6 +19,4 @@ describe('Grandprix Component', () => {
     const blogCard = container.querySelector('.blog-card');
     expect(blogCard).toBeInTheDocument();
   });
-
-
 });

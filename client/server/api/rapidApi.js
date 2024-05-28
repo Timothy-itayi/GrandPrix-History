@@ -4,7 +4,9 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const apiKey = process.env.API_KEY;
+const apiKey = process.env.REACT_APP_API_KEY;
+console.log('API Key:', process.env.REACT_APP_API_KEY);
+
 const baseURL = 'https://hyprace-api.p.rapidapi.com/v1';
 
 const apiOptions = (endpoint) => ({

@@ -6,9 +6,9 @@ import App from './App';
 
 // Mock the pages to avoid loading the actual content
 jest.mock('./pages/home', () => () => <div>Home Page</div>);
-jest.mock('./pages/SelectionPage', () => () => <div>Selection Page</div>);
-jest.mock('./pages/dashboard', () => () => <div>Dashboard Page</div>);
-jest.mock('./components/navBar', () => () => <div>NavBar</div>);
+jest.mock('./pages/grandprix', () => () => <div>Grandprix Page</div>);
+jest.mock('./pages/about', () => () => <div>About Page</div>);
+jest.mock('./components/LayoutComponents/navBar', () => () => <div>NavBar</div>);
 
 test('renders the home page by default', () => {
   render(
@@ -19,9 +19,9 @@ test('renders the home page by default', () => {
 
   expect(screen.getByText('Home Page')).toBeInTheDocument();
 });
-
-test('renders the selection page when navigating to /selection', () => {
-  window.history.pushState({}, 'Test page', '/selection');
+ 
+test('renders the grandprix page when navigating to /grandprix', () => {
+  window.history.pushState({}, 'Test page', '/grandprix');
 
   render(
     <Router>
@@ -29,11 +29,11 @@ test('renders the selection page when navigating to /selection', () => {
     </Router>
   );
 
-  expect(screen.getByText('Selection Page')).toBeInTheDocument();
+  expect(screen.getByText('Grandprix Page')).toBeInTheDocument();
 });
 
-test('renders the dashboard page when navigating to /dashboard', () => {
-  window.history.pushState({}, 'Test page', '/dashboard');
+test('renders the  page when navigating to /about', () => {
+  window.history.pushState({}, 'Test page', '/about');
 
   render(
     <Router>
@@ -41,5 +41,5 @@ test('renders the dashboard page when navigating to /dashboard', () => {
     </Router>
   );
 
-  expect(screen.getByText('Dashboard Page')).toBeInTheDocument();
+  expect(screen.getByText('About Page')).toBeInTheDocument();
 });
