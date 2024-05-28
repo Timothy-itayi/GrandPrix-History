@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ImageWithHover from './ImageWithHover';
 
- // Ensure this path is correct and the logo exists
+
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
