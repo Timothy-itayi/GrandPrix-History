@@ -1,6 +1,6 @@
 import React from 'react';
 import { Carousel } from 'flowbite-react';
-import ArrowButton from './ArrowButton'; // Adjust the import path as necessary
+import ArrowButton from './ArrowButton'; 
 
 
 const CustomCarousel = ({ imageUrls = [] }) => {
