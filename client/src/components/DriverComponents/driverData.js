@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import apiClient from '../../apis/apiClient';
+import {fetchDrivers} from '../../apis/apiClient';
 import driverImages from '../../models/drivers';
+
 
 const DriverData = ({ children }) => {
   const [driverList, setDriverList] = useState([]);
@@ -9,16 +10,20 @@ const DriverData = ({ children }) => {
 
   const fetchData = async () => {
     try {
-      const response = await apiClient.get('/');
-      const fetchedData = response.data;
+       // Fetch drivers with seasonYear = 2024 and pageSize = 24
+       const fetchedData = await fetchDrivers(24);
+    
+    
+  // Log the fetched data to understand its structure
+  console.log('Fetched Data:', fetchedData);
 
-      // Ensure fetchedData is an array and has items
-      if (!Array.isArray(fetchedData) || !fetchedData[0] || !fetchedData[0].items) {
-        throw new Error('Invalid data structure');
-      }
+  // Ensure fetchedData has the items key and it's an array
+  if (!fetchedData || !Array.isArray(fetchedData.items)) {
+    throw new Error('Invalid data structure');
+  }
 
-      const items = fetchedData[0].items;
-
+  const items = fetchedData.items;
+  console.log('Constructors:', items);
       // Map images and driver numbers to driver IDs
       const driverMap = {};
       driverImages.forEach(driver => {
@@ -29,23 +34,31 @@ const DriverData = ({ children }) => {
         };
       });
 
+
+      console.log('Driver Map:', driverMap); // Log the driver map
+
+
       // Extract and sort drivers
-      const drivers = [];
-      items.forEach(team => {
-        if (team.drivers) {
-          team.drivers.forEach(driver => {
-            drivers.push({
-              ...driver,
-              teamName: team.fullName,
-              imageUrl: driverMap[driver.id] ? driverMap[driver.id].image : null,
-              driver_number: driverMap[driver.id] ? driverMap[driver.id].driver_number : null,
-              suitColor: driverMap[driver.id]? driverMap[driver.id].suitColor: null
-            });
-          });
-        }
-      });
+           // Extract and sort drivers
+           const drivers = [];
+           items.forEach(item => {
+             if (item.constructors) {
+               item.constructors.forEach(constructor => {
+                 drivers.push({
+                   ...item,
+                   teamName: constructor.fullName,
+                   imageUrl: driverMap[item.id] ? driverMap[item.id].image : null,
+                   driver_number: driverMap[item.id] ? driverMap[item.id].driver_number : null,
+                   suitColor: driverMap[item.id] ? driverMap[item.id].suitColor : null,
+                 });
+               });
+             }
+           });
+           
       drivers.sort((a, b) => a.standing.position - b.standing.position);
 
+
+      console.log('Processed Drivers:', drivers); // Debugging line
       setDriverList(drivers);
       setIsLoading(false);
     } catch (error) {
@@ -60,6 +73,7 @@ const DriverData = ({ children }) => {
   }, []);
 
   return children({ drivers: driverList, isLoading, error });
+
 };
 
 export default DriverData;

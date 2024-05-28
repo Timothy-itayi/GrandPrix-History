@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import DriverData from './driverData';
 import DriverCard from '../../pages/driverCard';
-import DriverDetail from '../DriverComponents/loadingDriverDetail';
-import LoadingSpinner from './loadingDriverDetail';
+import Detail from '../DriverComponents/driverDetail';
+import LoadingStandings from '../DriverComponents/loadingStandings'
 import apiClient from '../../apis/apiClient';
 
-const DriverStanding = () => {
+
+const DriverList = () => {
   const [selectedDriver, setSelectedDriver] = useState(null);
   const [latestPosition, setLatestPosition] = useState(null);
   const [latestSession, setLatestSession] = useState(null);
@@ -73,8 +74,9 @@ const DriverStanding = () => {
     <DriverData>
       {({ drivers, isLoading, error }) => (
         <div className="flex flex-col items-center p-4">
-          {selectedDriver ? (
-            <DriverDetail
+          {selectedDriver ?
+           (
+            <Detail 
               driver={selectedDriver}
               latestPosition={latestPosition}
               latestSession={latestSession}
@@ -85,9 +87,9 @@ const DriverStanding = () => {
               onBack={() => setSelectedDriver(null)}
             />
           ) : (
-            <>
+            <> 
               {isLoading ? (
-                <LoadingSpinner />
+                <LoadingStandings />
               ) : error ? (
                 <div className="text-xl font-semibold text-red-500">{error}</div>
               ) : (
@@ -102,11 +104,11 @@ const DriverStanding = () => {
                 </div>
               )}
             </>
-          )}
+          )}   
         </div>
       )}
     </DriverData>
   );
 };
 
-export default DriverStanding;
+export default DriverList;

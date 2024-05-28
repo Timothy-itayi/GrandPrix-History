@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LoadingSpinner = () => {
+const LoadingStandings = () => {
   return (
     <div className="flex flex-wrap justify-center">
       {[...Array(8)].map((_, index) => (
@@ -32,4 +32,4 @@ const LoadingSpinner = () => {
   );
 };
 
-export default LoadingSpinner;
+export default LoadingStandings;
