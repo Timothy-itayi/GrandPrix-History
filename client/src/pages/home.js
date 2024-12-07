@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 const Home = () => {
   return (
     <div className="overflow-hidden py-24 pb-20 animate-fade-up">
+    <div className="py-10>
       <header className="text-center ">
         <div >
         <h1 className="text-7xl font-bold pb-10 text-gray-800 text-white">Welcome to GrandPrix History</h1>
@@ -39,6 +40,7 @@ const Home = () => {
           &copy; {new Date().getFullYear()} GrandPrix History. All rights reserved.
         </p>
       </footer>
+    </div>
     </div>
   );
 };
