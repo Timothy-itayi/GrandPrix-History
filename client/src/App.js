@@ -13,7 +13,7 @@ const App = () => {
   return (
   <>
       <NavBar />
-      <div className="flex flex-col bg-black  py-10 items-center p-4">
+      <div className="flex flex-col bg-black  py-20 items-center p-4">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/showroom" element={<Showroom />} />
